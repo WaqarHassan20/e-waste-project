@@ -80,28 +80,24 @@ export const RestaurantDashboard: React.FC<RestaurantDashboardProps> = ({ restau
         <div className="mb-8 bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-extrabold text-gray-900 mb-2">🏪 {restaurantName}</h1>
+              <h1 className="text-4xl font-extrabold text-gray-900 mb-2">{restaurantName}</h1>
               <p className="text-lg text-gray-600">Manage your donations and make an impact</p>
             </div>
             <div className="flex items-center gap-6">
               {/* Role Badge */}
-              <div className="hidden md:flex items-center gap-3 px-6 py-3 bg-linear-to-br from-purple-500 via-pink-500 to-rose-500 rounded-2xl shadow-xl">
-                <div className="bg-white/20 backdrop-blur-sm p-2 rounded-lg">
-                  <span className="text-2xl">🏪</span>
-                </div>
-                <div className="text-white">
-                  <div className="text-xs font-medium uppercase tracking-wider opacity-90">Role</div>
-                  <div className="text-lg font-bold">Restaurant</div>
-                </div>
+              <div className="hidden md:flex flex-col items-center justify-center px-8 py-4 bg-linear-to-br from-emerald-500 via-teal-500 to-cyan-500 rounded-2xl shadow-xl border border-white/20">
+                <div className="text-white/90 text-xs font-semibold uppercase tracking-widest mb-1">Current Role</div>
+                <div className="text-white text-2xl font-extrabold tracking-tight">{restaurantName}</div>
+                <div className="text-emerald-100 text-sm font-medium mt-0.5">Restaurant Account</div>
               </div>
               
               {/* Profile Dropdown */}
               <div className="relative">
                 <button
                   onClick={() => setShowProfileDropdown(!showProfileDropdown)}
-                  className="w-14 h-14 rounded-full bg-linear-to-br from-purple-400 via-pink-500 to-rose-600 shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center text-white font-bold text-xl border-4 border-white/30 backdrop-blur-sm"
+                  className="w-14 h-14 rounded-full bg-linear-to-br from-emerald-400 via-teal-500 to-cyan-600 shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center text-white font-bold text-xl border-4 border-white/30 backdrop-blur-sm"
                   style={{
-                    boxShadow: '0 10px 40px rgba(236, 72, 153, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 8px rgba(0, 0, 0, 0.2)'
+                    boxShadow: '0 10px 40px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 8px rgba(0, 0, 0, 0.2)'
                   }}
                 >
                   {restaurantName.charAt(0).toUpperCase()}
@@ -109,7 +105,7 @@ export const RestaurantDashboard: React.FC<RestaurantDashboardProps> = ({ restau
                 
                 {showProfileDropdown && (
                   <div className="absolute right-0 mt-3 w-56 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                    <div className="p-4 border-b border-gray-100 bg-linear-to-br from-purple-50 to-pink-50">
+                    <div className="p-4 border-b border-gray-100 bg-linear-to-br from-emerald-50 to-teal-50">
                       <div className="font-semibold text-gray-900">{restaurantName}</div>
                       <div className="text-sm text-gray-600">Restaurant Account</div>
                     </div>
@@ -120,7 +116,9 @@ export const RestaurantDashboard: React.FC<RestaurantDashboardProps> = ({ restau
                       }}
                       className="w-full px-4 py-3 text-left hover:bg-red-50 transition-colors flex items-center gap-3 text-red-600 font-medium"
                     >
-                      <span className="text-xl">🚪</span>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                      </svg>
                       <span>Logout</span>
                     </button>
                   </div>

@@ -76,19 +76,15 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ userName }) => {
         <div className="mb-8 bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Welcome back, {userName}! 👋</h1>
+              <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Welcome back, {userName}!</h1>
               <p className="text-lg text-gray-600">Discover available food and manage your requests</p>
             </div>
             <div className="flex items-center gap-6">
               {/* Role Badge */}
-              <div className="hidden md:flex items-center gap-3 px-6 py-3 bg-linear-to-br from-emerald-500 via-teal-500 to-cyan-500 rounded-2xl shadow-xl">
-                <div className="bg-white/20 backdrop-blur-sm p-2 rounded-lg">
-                  <span className="text-2xl">🍽️</span>
-                </div>
-                <div className="text-white">
-                  <div className="text-xs font-medium uppercase tracking-wider opacity-90">Role</div>
-                  <div className="text-lg font-bold">User</div>
-                </div>
+              <div className="hidden md:flex flex-col items-center justify-center px-8 py-4 bg-linear-to-br from-emerald-500 via-teal-500 to-cyan-500 rounded-2xl shadow-xl border border-white/20">
+                <div className="text-white/90 text-xs font-semibold uppercase tracking-widest mb-1">Current Role</div>
+                <div className="text-white text-2xl font-extrabold tracking-tight">{userName}</div>
+                <div className="text-emerald-100 text-sm font-medium mt-0.5">User Account</div>
               </div>
               
               {/* Profile Dropdown */}
@@ -116,7 +112,9 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ userName }) => {
                       }}
                       className="w-full px-4 py-3 text-left hover:bg-red-50 transition-colors flex items-center gap-3 text-red-600 font-medium"
                     >
-                      <span className="text-xl">🚪</span>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                      </svg>
                       <span>Logout</span>
                     </button>
                   </div>
