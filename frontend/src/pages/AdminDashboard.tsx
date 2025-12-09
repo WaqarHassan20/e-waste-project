@@ -3,6 +3,7 @@ import { Card, Button, Badge } from '../components/ui';
 
 export const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'users' | 'restaurants' | 'reports'>('overview');
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 
   const stats = {
     totalUsers: 5234,
@@ -46,7 +47,50 @@ export const AdminDashboard: React.FC = () => {
               <h1 className="text-4xl font-extrabold text-gray-900 mb-2">🛡️ Admin Dashboard</h1>
               <p className="text-lg text-gray-600">Monitor and manage the FoodShare platform</p>
             </div>
-            <Button className="hidden md:block">📊 Generate Report</Button>
+            <div className="flex items-center gap-6">
+              {/* Role Badge */}
+              <div className="hidden md:flex items-center gap-3 px-6 py-3 bg-linear-to-br from-blue-500 via-indigo-500 to-violet-600 rounded-2xl shadow-xl">
+                <div className="bg-white/20 backdrop-blur-sm p-2 rounded-lg">
+                  <span className="text-2xl">🛡️</span>
+                </div>
+                <div className="text-white">
+                  <div className="text-xs font-medium uppercase tracking-wider opacity-90">Role</div>
+                  <div className="text-lg font-bold">Administrator</div>
+                </div>
+              </div>
+              
+              {/* Profile Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowProfileDropdown(!showProfileDropdown)}
+                  className="w-14 h-14 rounded-full bg-linear-to-br from-blue-400 via-indigo-500 to-violet-600 shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center text-white font-bold text-xl border-4 border-white/30 backdrop-blur-sm"
+                  style={{
+                    boxShadow: '0 10px 40px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 8px rgba(0, 0, 0, 0.2)'
+                  }}
+                >
+                  A
+                </button>
+                
+                {showProfileDropdown && (
+                  <div className="absolute right-0 mt-3 w-56 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="p-4 border-b border-gray-100 bg-linear-to-br from-blue-50 to-indigo-50">
+                      <div className="font-semibold text-gray-900">Admin</div>
+                      <div className="text-sm text-gray-600">Administrator Account</div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        // Handle logout
+                        console.log('Logout clicked');
+                      }}
+                      className="w-full px-4 py-3 text-left hover:bg-red-50 transition-colors flex items-center gap-3 text-red-600 font-medium"
+                    >
+                      <span className="text-xl">🚪</span>
+                      <span>Logout</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
